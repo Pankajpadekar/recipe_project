@@ -26,3 +26,9 @@ def receipes(request):
     }
 
     return HttpResponse(template.render(context, request))
+
+
+def delete_receipe(request, id):
+    receipes = Receipe.objects.get(id = id)
+    receipes.delete()
+    return redirect('/receipes/')

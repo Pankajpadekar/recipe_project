@@ -20,5 +20,6 @@ from vege.views import *
 
 
 urlpatterns = [
-    path('receipes/', receipes, name="receipes")
+    path('receipes/', receipes, name="receipes"),
+    path('delete_receipe/<id>/', delete_receipe,  name='delete_receipe')
 ] 
