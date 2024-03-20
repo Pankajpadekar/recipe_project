@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.template import loader
 from .models import *
 
 # Create your views here.
@@ -14,4 +16,13 @@ def receipes(request):
         Receipe.objects.create(receipe_name=receipe_name,
                                receipe_description=receipe_description,
                                receipe_image=receipe_image)
-    return render(request, 'receipes.html')
+
+        return redirect('/receipes/')
+
+    receipes = Receipe.objects.all()
+    template = loader.get_template('receipes.html')
+    context = {
+        'receipes': receipes,
+    }
+
+    return HttpResponse(template.render(context, request))
