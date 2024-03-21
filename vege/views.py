@@ -6,6 +6,9 @@ from .models import *
 # Create your views here.
 
 
+def home(request):
+    return render(request, 'home.html')
+
 def receipes(request):
     if request.method == "POST":
         data = request.POST
@@ -31,4 +34,12 @@ def receipes(request):
 def delete_receipe(request, id):
     receipes = Receipe.objects.get(id = id)
     receipes.delete()
+    return redirect('/receipes/')
+
+
+def update_receipe(request, id):
+    receipes = Receipe.objects.get(id = id)
+    context = {
+        'receipes': receipes,
+    }
     return redirect('/receipes/')

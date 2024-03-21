@@ -30,35 +30,6 @@
             </div>
             <button type="submit" class="btn btn-success">Add</button>
           </form>
-          <br>
-          <br>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Receipe Name</th>
-                <th scope="col">Receipe Desc</th>
-                <th scope="col">Image</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for receipe in receipes %}
-              <tr>
-                <th scope="row">{{forloop.counter}}</th>
-                <td>{{receipe.receipe_name}}</td>
-                <td>{{receipe.receipe_description}}</td>
-                <td><img src="/media/{{receipe.receipe_image}}" style="height: 150px"></td>
-                <td>
-                  <a href="/delete_receipe/{{receipe.id}}/" class="btn btn-danger">Delete</a>
-                  <br>
-                  <br>
-                  <a href="/delete_receipe/{{receipe.id}}/" class="btn btn-success">Update</a>
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
     </div>
   </body>
 </html>
