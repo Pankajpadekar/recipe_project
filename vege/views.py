@@ -24,6 +24,11 @@ def receipes(request):
         return redirect('/receipes/')
 
     receipes = Receipe.objects.all()
+
+    if request.GET.get('search'):
+        receipes = receipes.filter(
+            receipe_name__icontains=request.GET.get('search'))
+
     template = loader.get_template('receipes.html')
     context = {
         'receipes': receipes,
@@ -45,15 +50,16 @@ def update_receipe(request, id):
         data = request.POST
         receipe_name = data.get('receipe_name')
         receipe_description = data.get('receipe_description')
-        receipe_image = request.FILES['receipe_image']
+        receipe_image = request.FILES.get('receipe_image')
 
-        Receipe.objects.create(receipe_name=receipe_name,
-                               receipe_description=receipe_description)
+        receipes.receipe_name = receipe_name
+        receipes.receipe_description = receipe_description
 
         if receipe_image:
             receipes.receipe_image = receipe_image
 
         receipes.save()
+        return redirect('/receipes/')
 
     template = loader.get_template('update_receipes.html')
     context = {
