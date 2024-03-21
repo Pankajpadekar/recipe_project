@@ -14,15 +14,15 @@
     <div class="container mt-5 rounded-5">
         <form class="col-6 mx-auto card p-3 shadow-lg rounded-5" method="post" enctype='multipart/form-data'>
             {% csrf_token %}
-            <h2>Add Receipes</h2>
+            <h2>Update Receipe</h2>
             <hr>
             <div class="mb-3">
               <label for="exampleInputReceipe" class="form-label">Receipe Name</label>
-              <input name="receipe_name" type="text" class="form-control">
+              <input name="receipe_name" value="{{receipes.receipe_name}}" required type="text" class="form-control">
             </div>
             <div class="mb-3">
               <label for="exampleInputDesc"  class="form-label">Receipe Description</label>
-              <textarea class="form-control" name="receipe_description"></textarea>
+              <textarea class="form-control" name="receipe_description">{{receipes.receipe_description}}</textarea>
             </div>
             <div class="mb-3">
               <label for="exampleInputImg" class="form-label">Receipe Image</label>
