@@ -14,10 +14,12 @@
     <div class="container mt-5 rounded-5">
           <form class="col-6 mx-auto card p-3 shadow-lg rounded-5" method="post" enctype='multipart/form-data'>
             {% csrf_token %}
-            <h2>Add Receipes</h2>
+            <center>
+              <h2>Add Receipes</h2>
+            </center>
             <hr>
             <div class="mb-3">
-              <label for="exampleInputReceipe" class="form-label">Receipe Name</label>
+              <label for="exampleInputReceipe" class="form-label" text="center">Receipe Name</label>
               <input name="receipe_name" type="text" class="form-control">
             </div>
             <div class="mb-3">
@@ -48,7 +50,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Receipe Name</th>
-                <th scope="col">Receipe Desc</th>
+                <th scope="col">Receipe Description</th>
                 <th scope="col">Image</th>
                 <th scope="col">Actions</th>
               </tr>
