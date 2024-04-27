@@ -68,7 +68,7 @@ def update_receipe(request, id):
     return HttpResponse(template.render(context, request))
 
 
-def nutritients(request):
+def nutritions(request):
     if request.method == "POST":
         data = request.POST
         receipe_name = data.get('receipe_name')
