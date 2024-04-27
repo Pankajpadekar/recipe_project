@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    height: 17vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.nav-1, .nav-2 {
+    display: flex;
+    position: relative;
+    list-style: none;
+    color: white;
+    gap: 3rem;
+    font-size: 1.5rem;
+}
